@@ -23,6 +23,11 @@ Authors: Jan Wagner <waja@cyconet.org>
          Dustin Kirkland <kirkland@canonical.com>
 License: GPL-2+
 
+Files: scripts/shipped-motd
+Copyright: (C) 2015 Jan Wagner
+Authors: Jan Wagner <waja@cyconet.org>
+License: GPL-2+
+
 Files: scripts/updates
 Copyright: (C) 2013 Nick Charlton
 Authors: Nick Charlton <hello@nickcharlton.net>

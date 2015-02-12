@@ -1,3 +1,4 @@
 usr/share/custom-motd/header /etc/custom-motd.d/00-header
+usr/share/custom-motd/shipped-motd /etc/custom-motd.d/05-shipped-motd
 usr/share/custom-motd/updates /etc/custom-motd.d/20-updates
 usr/share/custom-motd/fsck-at-reboot /etc/custom-motd.d/90-fsck-at-reboot
