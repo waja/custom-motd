@@ -3,7 +3,7 @@ Section: admin
 Priority: extra
 Maintainer: Jan Wagner <waja@cyconet.org>
 Build-Depends: debhelper (>= 7)
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Vcs-Git: git://github.com/waja/custom-motd.git
 Vcs-Browser: http://github.com/waja/custom-motd
 
