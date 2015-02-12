@@ -5,15 +5,26 @@ Files: *
 Copyright: Copyright (C) 2015 Jan Wagner <waja@cyconet.org>
 License: GPL-2+
 
+Files: scripts/fsck-at-reboot
+Copyright: (C) 2015 Jan Wagner
+           (C) 2004 Lukas Lipka <lukas@pmad.net>
+           (C) 2004 Michael Vogt <mvo@debian.org>
+           (C) 2004 Michiel Sikkes <michiel@eyesopened.nl>
+           (c) 2004-2006 Canonical
+Authors: Jan Wagner <waja@cyconet.org>
+         Mads Chr. Olesen <mads@mchro.dk>
+         Kees Cook <kees@ubuntu.com>
+License: GPL-2+
+
 Files: scripts/header
-Copyright: Copyright (C) 2015 Jan Wagner
-           Copyright (C) 2009-2010 Canonical Ltd.
+Copyright: (C) 2015 Jan Wagner
+           (C) 2009-2010 Canonical Ltd.
 Authors: Jan Wagner <waja@cyconet.org>
          Dustin Kirkland <kirkland@canonical.com>
 License: GPL-2+
 
 Files: scripts/updates
-Copyright: Copyright (C) 2013 Nick Charlton
+Copyright: (C) 2013 Nick Charlton
 Authors: Nick Charlton <hello@nickcharlton.net>
          Dustin Kirkland <kirkland@canonical.com>
          Michael Vogt <michael.vogt@canonical.com>
