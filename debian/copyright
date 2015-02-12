@@ -5,6 +5,20 @@ Files: *
 Copyright: Copyright (C) 2015 Jan Wagner <waja@cyconet.org>
 License: GPL-2+
 
+Files: scripts/header
+Copyright: Copyright (C) 2015 Jan Wagner
+           Copyright (C) 2009-2010 Canonical Ltd.
+Authors: Jan Wagner <waja@cyconet.org>
+         Dustin Kirkland <kirkland@canonical.com>
+License: GPL-2+
+
+Files: scripts/updates
+Copyright: Copyright (C) 2013 Nick Charlton
+Authors: Nick Charlton <hello@nickcharlton.net>
+         Dustin Kirkland <kirkland@canonical.com>
+         Michael Vogt <michael.vogt@canonical.com>
+License: GPL-2+
+
 License: GPL-2+
         This program is free software; you can redistribute it and/or modify
         it under the terms of the GNU General Public License as published by
