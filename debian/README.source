@@ -1,0 +1,13 @@
+The origin source of scripts/ is:
+
+scripts/fsck-at-reboot:
+
+http://bazaar.launchpad.net/~ubuntu-branches/ubuntu/vivid/update-notifier/vivid/download/head:/updatemotdfsckatrebo-20101111101434-fvawgp65cjkj9r1s-2/update-motd-fsck-at-reboot
+
+scripts/header:
+
+http://bazaar.launchpad.net/~ubuntu-branches/ubuntu/vivid/base-files/vivid/download/head:/00header-20100331224807-cy3me7bdc5colc8r-4/00-header
+
+scripts/updates:
+
+https://github.com/nickcharlton/dynamic-motd/blob/158353b55fab05db25572eba43459ba5f480d606/20-updates
