@@ -17,3 +17,4 @@ override_dh_auto_build:
 
 override_dh_auto_install:
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/custom-motd
+	install -D -m 644 debian/custom-motd.profile.d debian/custom-motd/etc/profile.d/custom-motd.sh
