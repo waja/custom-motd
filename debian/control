@@ -10,6 +10,6 @@ Vcs-Browser: http://github.com/waja/custom-motd
 Package: custom-motd
 Architecture: all
 Depends: ${misc:Depends}
-Recommends: lsb-release, python-apt (>= 0.7.100.1~)
+Recommends: lsb-release, python-apt (>= 0.7.100.1~), debian-security-support
 Description: helper scripts for creating a customized motd
  FIXME: long description is needed
