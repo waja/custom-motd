@@ -38,4 +38,5 @@ if [ -z "$DISTRIB_DESCRIPTION" ] && [ -r /etc/issue.net ]; then
 	DISTRIB_DESCRIPTION=$(cat /etc/issue.net)
 fi
 
-printf "Welcome to %s (%s %s %s)\n" "$DISTRIB_DESCRIPTION" "$(uname -o)" "$(uname -r)" "$(uname -m)"
+printf "Welcome to %s\n" "$DISTRIB_DESCRIPTION"
+printf "%s %s\n" "$(uname -o)" "$(uname -nrvm)"
