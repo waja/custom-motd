@@ -19,7 +19,9 @@
 #    with this program; if not, write to the Free Software Foundation, Inc.,
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-if [ -r /etc/motd ]; then
-	cat /etc/motd
+[ -r /etc/os-release ] && . /etc/os-release
+
+if [ "$ID" != "ubuntu" ] && [ -r /usr/share/base-files/motd ]; then
+	cat /usr/share/base-files/motd
 	echo ""
 fi
