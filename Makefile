@@ -20,12 +20,12 @@ test:
 
 install:
 	# Installing scripts
-	mkdir -p $(DESTDIR)/usr/share
-	cp -r scripts $(DESTDIR)/usr/share/$(PACKAGE)
-	chmod -R +x $(DESTDIR)/usr/share/$(PACKAGE)
+	mkdir -p "$(DESTDIR)/usr/share/$(PACKAGE)/"
+	cp -r scripts "$(DESTDIR)/usr/share/$(PACKAGE)/"
+	chmod -R +x "$(DESTDIR)/usr/share/$(PACKAGE)/scripts"
 
 uninstall:
 	# Uninstalling scripts
-	rm -rf $(DESTDIR)/usr/share/$(PACKAGE)
+	rm -rf "$(DESTDIR)/usr/share/$(PACKAGE)"
 
 reinstall: uninstall install
