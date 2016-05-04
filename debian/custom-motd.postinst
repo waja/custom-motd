@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+run-parts --lsbsysinit /etc/custom-motd.d/ 2>/dev/null > /var/run/motd.custom
+
+#DEBHELPER#
+
+exit 0
