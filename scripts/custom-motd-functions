@@ -1,0 +1,88 @@
+#custom-motd-functions - shared functions for custom-motd package
+#Copyright (C) 2016 Jan Wagner
+#Copyright (c) 2002-08 Chris Lawrence
+#All rights reserved.
+#
+#Redistribution and use in source and binary forms, with or without
+#modification, are permitted provided that the following conditions
+#are met:
+#1. Redistributions of source code must retain the above copyright
+#   notice, this list of conditions and the following disclaimer.
+#2. Redistributions in binary form must reproduce the above copyright
+#   notice, this list of conditions and the following disclaimer in the
+#   documentation and/or other materials provided with the distribution.
+#3. Neither the name of the author nor the names of other contributors
+#   may be used to endorse or promote products derived from this software
+#   without specific prior written permission.
+#
+#THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+#IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+#WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+#ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE
+#LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+#CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+#SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+#BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+#OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+#EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+log_use_fancy_output () {
+	TPUT=/usr/bin/tput
+	EXPR=/usr/bin/expr
+	if  [ -t 1 ] &&
+		[ "x${TERM:-}" != "x" ] &&
+		[ "x${TERM:-}" != "xdumb" ] &&
+		[ -x $TPUT ] && [ -x $EXPR ] &&
+		$TPUT hpa 60 >/dev/null 2>&1 &&
+		$TPUT setaf 1 >/dev/null 2>&1
+	then
+		[ -z $FANCYTTY ] && FANCYTTY=1 || true
+	else
+		FANCYTTY=0
+	fi
+	case "$FANCYTTY" in
+		1|Y|yes|true)   true;;
+		*)              false;;
+	esac
+}
+
+if log_use_fancy_output; then
+	if tput setaf 1 &> /dev/null; then
+		tput sgr0
+		if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+			MAGENTA=$(tput setaf 9)
+			ORANGE=$(tput setaf 172)
+			YELLOW=$(tput setaf 136)
+			GREEN=$(tput setaf 190)
+			RED=$(tput setaf 124)
+			PURPLE=$(tput setaf 141)
+			WHITE=$(tput setaf 256)
+		else
+			MAGENTA=$(tput setaf 5)
+			ORANGE=$(tput setaf 4)
+			YELLOW=$(tput setaf 3)
+			GREEN=$(tput setaf 2)
+			RED=$(tput setaf 1)
+			PURPLE=$(tput setaf 1)
+			WHITE=$(tput setaf 7)
+		fi
+		BOLD=$(tput bold)
+		RESET=$(tput sgr0)
+	else
+		MAGENTA="\033[1;31m"
+		ORANGE="\033[1;33m"
+		YELLOW="\033[1;33m"
+		GREEN="\033[1;32m"
+		RED="\033[0;31m"
+		BLUE="\033[1;34m"
+		PURPLE="\033[1;35m"
+		WHITE="\033[1;37m"
+		BOLD=""
+		RESET="\033[m"
+	fi
+else
+	RED=''
+	YELLOW=''
+	NORMAL=''
+fi

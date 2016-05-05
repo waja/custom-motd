@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+#    lts-status - Show if there is (still) LTS support for the system
+#    Copyright (C) 2016 Jan Wagner
+#
+#    Authors: Jan Wagner <waja@cyconet.org>
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+DEBIANLTSCONF="/usr/share/custom-motd/lts-debian-support"
+
+# determinate debian version
+if [ -f  /etc/debian_version ]
+then
+	DEBVER=$(cat /etc/debian_version | awk -F. {'print $1'})
+else
+	echo "#### ERROR ####"
+	echo "/etc/debian_version is missing!"
+	echo "#################"
+	exit 0
+fi
+
+if [ -f /usr/share/custom-motd/scripts/custom-motd-functions ]
+then
+	. /usr/share/custom-motd/scripts/custom-motd-functions
+fi
+
+DATE=$(date -u +%s)
+LTSRANGE=$(grep "^${DEBVER}" ${DEBIANLTSCONF})
+LTSSTART=$(echo ${LTSRANGE} | awk '{print $2}')
+LTSEND=$(echo ${LTSRANGE} | awk '{print $3}')
+
+if [ ${DATE} -gt ${LTSEND} ]; then
+	echo -e "${RED}Your distribution is NOT covered by LTS support anymore, see https://wiki.debian.org/LTS/${RESET}\n"
+fi
+if [ ${DATE} -lt ${LTSEND} -a ${DATE} -gt ${LTSSTART} ]; then
+	echo -e "${YELLOW}Your actual distribution is covery by LTS support, see https://wiki.debian.org/LTS/${RESET}\n"
+fi
