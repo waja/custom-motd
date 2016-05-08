@@ -1,6 +1,6 @@
 usr/share/custom-motd/scripts/debian-lts /etc/custom-motd.d/10-debian-lts
 usr/share/custom-motd/scripts/fsck-at-reboot /etc/custom-motd.d/90-fsck-at-reboot
 usr/share/custom-motd/scripts/header /etc/custom-motd.d/00-header
-usr/share/custom-motd/scripts/lts-status /etc/custom-motd.d/15-lts-status
+usr/share/custom-motd/scripts/lts-status /etc/custom-motd.d/09-lts-status
 usr/share/custom-motd/scripts/shipped-motd /etc/custom-motd.d/05-shipped-motd
 usr/share/custom-motd/scripts/updates /etc/custom-motd.d/20-updates
