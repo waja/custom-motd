@@ -24,4 +24,8 @@ if [ -x /usr/bin/check-support-status ]; then
 	echo ""
 	check-support-status | grep "^  - "
 	echo ""
+else
+	echo "To see (here) if all your installed packages are covered by LTS support, please"
+	echo "install the package 'debian-security-support'!"
+	echo ""
 fi
