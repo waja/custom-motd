@@ -1,3 +1,48 @@
+custom-motd (0.0.2~10) restricted; urgency=medium
+
+  * [2ad627c] Adding support for Debian wheezy and above
+  * [b484c2f] Adding support for (at least) Debian lenny and above
+  * [e701925] Fixing indentation
+  * [7faf5b8] Updating copyright and authors
+  * [9c5c894] Adding a script for checking updates
+  * [185329c] Adding copyright of scripts
+  * [415ac18] we need a versioned dependency, as python-apt on lenny doesn't fit
+  * [8f189b2] Adding script for checking for fsck
+  * [d541ef7] Adding a skeleton
+  * [24e7919] Some more initial packaging
+  * [02945d3] Skip dh_auto_build and dh_auto_test
+  * [331210c] Bump Standards-Version to 3.9.6, no changes needed
+  * [89f2335] Adding shipped-motd
+  * [31ec34b] We need to have /var/lib/update-notifier/ created
+  * [9819080] Adding cronjob for updating our custom motd
+  * [4d8d6dd] Add profile.d script to output custom-motd on root login
+  * [b04a426] Adding debian-lts
+  * [01835e3] Adjust the header output slightly
+  * [8f1f9cc] Adding README
+  * [f226381] Use the package shiped motd in case we are not on ubuntu
+  * [fdb1687] related projects
+  * [d6065ee] travis-ci: Adding initial .travis.yml
+  * [7145022] travis-ci: Initial support for uploading releases to github
+  * [f504542] Merging upstream changes of github-release.sh
+  * [3dc50a1] Updating copyright and author of debian/bin/github-release.sh
+  * [1a822d7] debian/control: reformating with warp-and-sort
+  * [cb0fb76] Reformating with warp-and-sort the rest of debian/
+  * [fd63452] travis-ci: Adding required arguments for trusty
+  * [da24e0c] travis-ci: automatically install dependencies
+  * [8739d6f] Bump Standards-Version to 3.9.8, no changes needed
+  * [0ccfd1d] d/custom-motd.postinst: Adding postinst maintainers script
+  * [77a7d56] Move scripts to /usr/share/custom-motd/scripts/
+  * [beb1658] Define Debian releases and LTS timeframes
+  * [32b119b] Adding script for LTS status
+  * [5f344e0] d/control: Move lsb-release and python-apt to depends
+  * [2ff110f] s/lts-status: echo doesn't need -e
+  * [7717120] Change order of scripts
+  * [1d53b97] s/debian-lts: Display if 'debian-security-support' is not installed
+  * [5c4d2ad] s/lts-status: remove linebreaks
+  * [032362d] s/updates: cosmetic changes
+
+ -- Jan Wagner <waja@cyconet.org>  Thu, 12 May 2016 12:39:49 +0200
+
 custom-motd (0.0.1) restricted; urgency=low
 
   * Initial release
