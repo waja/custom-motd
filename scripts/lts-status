@@ -43,8 +43,8 @@ LTSSTART=$(echo ${LTSRANGE} | awk '{print $2}')
 LTSEND=$(echo ${LTSRANGE} | awk '{print $3}')
 
 if [ ${DATE} -gt ${LTSEND} ]; then
-	echo "${RED}Your distribution is NOT covered by LTS support anymore, see https://wiki.debian.org/LTS/${RESET}\n"
+	echo "${RED}Your distribution is NOT covered by LTS support anymore, see https://wiki.debian.org/LTS/${RESET}"
 fi
 if [ ${DATE} -lt ${LTSEND} -a ${DATE} -gt ${LTSSTART} ]; then
-	echo "${YELLOW}Your actual distribution is covery by LTS support, see https://wiki.debian.org/LTS/${RESET}\n"
+	echo "${YELLOW}Your actual distribution is covery by LTS support, see https://wiki.debian.org/LTS/${RESET}"
 fi
