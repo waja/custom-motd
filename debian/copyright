@@ -25,6 +25,7 @@ License: GPL-2+
 
 Files: scripts/debian-lts
        scripts/shipped-motd
+       scripts/obsolete-packages
 Copyright: (C) 2015 Jan Wagner
 Authors: Jan Wagner <waja@cyconet.org>
 License: GPL-2+
