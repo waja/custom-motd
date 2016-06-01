@@ -41,12 +41,18 @@ def is_security_upgrade(pkg):
     '''
     Checks to see if a package comes from a DISTRO-security source.
     '''
-    security_package_sources = [("Ubuntu", "%s-security" % DISTRO),
-                                ("Debian", "%s-security" % DISTRO)]
+    security_package_sources = [{"origin": "Ubuntu",
+                                 "archive": "%s-security" % DISTRO},
+
+                                {"origin": "gNewSense",
+                                 "archive": "%s-security" % DISTRO},
+
+                                {"origin": "Debian",
+                                 "label": "Debian-Security"}]
 
     for (file, index) in pkg.file_list:
-        for origin, archive in security_package_sources:
-            if (file.archive == archive and file.origin == origin):
+        for pocket in security_package_sources:
+            if all(getattr(file, key) == pocket[key] for key in pocket):
                 return True
     return False
 
@@ -105,6 +111,7 @@ for pkg in cache.packages:
     # keep another count for security upgrades
     if is_security_upgrade(candidate):
         security_upgrades += 1
+        continue
 
     # double check for security upgrades masked by another package
     for version in pkg.version_list:
