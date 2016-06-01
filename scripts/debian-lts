@@ -20,10 +20,19 @@
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 if [ -x /usr/bin/check-support-status ]; then
-	echo "Installed packages with ended or limited (security) support:"
-	echo ""
-	check-support-status | grep "^  - "
-	echo ""
+	if [ -f /usr/share/custom-motd/scripts/custom-motd-functions ]
+	then
+		. /usr/share/custom-motd/scripts/custom-motd-functions
+	fi
+	TMPFILE=$(mktemp)
+	trap "{ rm -rf ${TMPFILE}; }" EXIT
+	check-support-status | grep "^  - " > ${TMPFILE}
+	if [ $(wc -l ${TMPFILE} | awk {'print $1'}) -gt 0 ]; then
+		echo "Installed packages with ended or limited (security) support:"
+		echo ""
+		cat ${TMPFILE}
+		echo ""
+	fi
 else
 	echo "To see (here) if all your installed packages are covered by LTS support, please"
 	echo "install the package 'debian-security-support'!"
