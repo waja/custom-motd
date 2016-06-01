@@ -1,3 +1,10 @@
+custom-motd (0.0.2) restricted; urgency=medium
+
+  * [f4c0df2] s/updates: Fix identifying security updates
+  * [8e860f4] Adding scripts/obsolete-packages, for detecting obsolete packages
+
+ -- Jan Wagner <waja@cyconet.org>  Wed, 01 Jun 2016 14:04:01 +0200
+
 custom-motd (0.0.2~10) restricted; urgency=medium
 
   * [2ad627c] Adding support for Debian wheezy and above
@@ -37,7 +44,8 @@ custom-motd (0.0.2~10) restricted; urgency=medium
   * [5f344e0] d/control: Move lsb-release and python-apt to depends
   * [2ff110f] s/lts-status: echo doesn't need -e
   * [7717120] Change order of scripts
-  * [1d53b97] s/debian-lts: Display if 'debian-security-support' is not installed
+  * [1d53b97] s/debian-lts: Display if 'debian-security-support' is not
+    installed
   * [5c4d2ad] s/lts-status: remove linebreaks
   * [032362d] s/updates: cosmetic changes
 
