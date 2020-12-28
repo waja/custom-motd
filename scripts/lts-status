@@ -42,6 +42,10 @@ LTSRANGE=$(grep "^${DEBVER}" ${DEBIANLTSCONF})
 LTSSTART=$(echo ${LTSRANGE} | awk '{print $2}')
 LTSEND=$(echo ${LTSRANGE} | awk '{print $3}')
 
+if [ ! ${LTSEND} ] || [ ! ${LTSSTART} ]; then
+	echo "No LTS support found for your distribution '${DEBVER}'"
+	exit 0
+fi
 if [ ${DATE} -gt ${LTSEND} ]; then
 	echo "${RED}Your distribution is NOT covered by LTS support anymore, see https://wiki.debian.org/LTS/${RESET}"
 fi
