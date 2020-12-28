@@ -1,0 +1,12 @@
+--- a/scripts/fsck-at-reboot
++++ b/scripts/fsck-at-reboot
+@@ -11,6 +11,9 @@
+     if type systemd-detect-virt > /dev/null 2>&1  && systemd-detect-virt -q -c; then
+         exit
+     fi
++    if [ "$(grep -c 'docker\|lxc' /proc/1/cgroup)" != 0 ] ; then
++        exit
++    fi
+     if [ "$(id -u)" != 0 ] ; then
+         exit
+     fi
