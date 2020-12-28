@@ -7,6 +7,11 @@ set -e
 # poor mans force
 if [ "$1" = "--force" ]; then
     NEEDS_FSCK_CHECK=yes
+else
+    if [ "$(id -u)" != 0 ] ; then
+        exit
+    fi
+    NEED_FSCK_CHECK=no
 fi
 
 # check time when we did the last check
@@ -17,15 +22,20 @@ else
     stampt=0
 fi
 
+# check time when we last booted
+last_boot=$(date -d "now - $(awk '{print $1}' /proc/uptime) seconds" +%s)
+
 now=$(date +%s)
-if [ $(($stampt + 3600)) -lt $now ] || [ $stampt -gt $now ]; then
+if [ $(($stampt + 3600)) -lt $now ] || [ $stampt -gt $now ] \
+   || [ $stampt -lt $last_boot ]
+then
     #echo $stampt $now need update 
 	NEEDS_FSCK_CHECK=yes
 fi
 
 # output something for update-motd
 if [ -n "$NEEDS_FSCK_CHECK" ]; then
-    > $stamp
+  {
     check_occur_any=
 
     ext_partitions=$(mount | awk '$5 ~ /^ext(2|3|4)$/ { print $1 }')
@@ -57,12 +67,19 @@ if [ -n "$NEEDS_FSCK_CHECK" ]; then
         fi
         if [ -n "$check_occur" ]; then
             check_occur_any=yes
-            echo "*** $part will be checked for errors at next reboot ***" >> $stamp
+            mountpoint=$(mount | grep "^$part" | cut -d ' ' -f 3)
+            pass=$(grep -v '^#' /etc/fstab | tr -s ' ' '\t' | cut -s -f 2,6 | grep -w "$mountpoint" | cut -f 2)
+            if [ "$pass" = "0" ]; then
+                echo "*** $part should be checked for errors ***"
+            else
+                echo "*** $part will be checked for errors at next reboot ***"
+            fi
         fi
     done
     if [ -n "$check_occur_any" ]; then
-        echo "" >> $stamp
+        echo ""
     fi
+  } > $stamp
 fi
 
 # output what we have (either cached or newly generated)
