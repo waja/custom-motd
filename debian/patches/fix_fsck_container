@@ -1,0 +1,12 @@
+--- a/scripts/fsck-at-reboot
++++ b/scripts/fsck-at-reboot
+@@ -8,6 +8,9 @@
+ if [ "$1" = "--force" ]; then
+     NEEDS_FSCK_CHECK=yes
+ else
++    if type systemd-detect-virt > /dev/null 2>&1  && systemd-detect-virt -q -c; then
++        exit
++    fi
+     if [ "$(id -u)" != 0 ] ; then
+         exit
+     fi
