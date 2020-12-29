@@ -4,6 +4,7 @@ Priority: extra
 Maintainer: Jan Wagner <waja@cyconet.org>
 Build-Depends: debhelper-compat (= 12), quilt
 Standards-Version: 4.5.1
+Rules-Requires-Root: no
 Vcs-Git: git://github.com/waja/custom-motd.git
 Vcs-Browser: https://github.com/waja/custom-motd
 
