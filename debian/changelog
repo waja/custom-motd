@@ -1,8 +1,25 @@
-custom-motd (0.0.5) UNRELEASED; urgency=medium
+custom-motd (0.0.5) restricted; urgency=medium
 
-  * NOT RELEASED YET
+  * [ee85585] Migrating to python3-apt as dependency
+  * [9b6be7c] Migrating to python3
+  * [9860f27] Adding LTS support for Debian 9 and 10
+  * [7fde4cd] Adding fix when LTS range could not detected
+  * [472d434] Merge changes from update-notifier
+  * [ca68d9f] d/rules: Enable quilt patching for dh
+    d/control: Raising debhelper compat level to 12 and adding quilt and build
+    dep
+  * [beccb38] Adding d/p/fix_fsck_container, preventing testing fsck in
+    containers
+  * [121ed8c] Adding d/p/no_check_fsck_inside_containers, preventing testing
+    fsck in containers when systemd-detect-virt is not available
+  * [badbeb2] Adding patch for systems which don't have dumpe2fs successfully
+    running
+  * [8f22231] Bump Standards-Version to 4.5.1, no changes needed
+  * [4724451] d/control: Use secure vcs link
+  * [def0d8f] d/copyright: Use secure packaging link
+  * [0991ce1] d/control: Adding Rules-Requires-Root: no
 
- -- Jan Wagner <waja@cyconet.org>  Mon, 28 Dec 2020 11:22:59 +0100
+ -- Jan Wagner <waja@cyconet.org>  Tue, 29 Dec 2020 18:23:44 +0100
 
 custom-motd (0.0.4) restricted; urgency=medium
 
