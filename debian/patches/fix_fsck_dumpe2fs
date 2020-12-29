@@ -1,0 +1,11 @@
+--- a/scripts/fsck-at-reboot
++++ b/scripts/fsck-at-reboot
+@@ -47,7 +47,7 @@
+ 
+     ext_partitions=$(mount | awk '$5 ~ /^ext(2|3|4)$/ { print $1 }')
+     for part in $ext_partitions; do
+-        dumpe2fs_out=$(dumpe2fs -h $part 2>/dev/null)
++        dumpe2fs_out=$(dumpe2fs -h $part 2>/dev/null || true)
+         mount_count=$(echo "$dumpe2fs_out" | grep "^Mount count:"|cut -d':' -f 2-)
+         if [ -z "$mount_count" ]; then mount_count=0; fi
+         max_mount_count=$(echo "$dumpe2fs_out" | grep "^Maximum mount count:"|cut -d':' -f 2-)

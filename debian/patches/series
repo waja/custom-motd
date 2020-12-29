@@ -1,2 +1,3 @@
 fix_fsck_container
 no_check_fsck_inside_containers
+fix_fsck_dumpe2fs
