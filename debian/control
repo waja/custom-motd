@@ -2,7 +2,7 @@ Source: custom-motd
 Section: admin
 Priority: extra
 Maintainer: Jan Wagner <waja@cyconet.org>
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper-compat (= 12), quilt
 Standards-Version: 3.9.8
 Vcs-Git: git://github.com/waja/custom-motd.git
 Vcs-Browser: http://github.com/waja/custom-motd
