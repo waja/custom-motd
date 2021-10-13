@@ -1,3 +1,9 @@
+custom-motd (0.0.8) UNRELEASED; urgency=medium
+
+  * NOT RELEASED YET
+
+ -- Jan Wagner <waja@cyconet.org>  Wed, 13 Oct 2021 11:21:30 +0200
+
 custom-motd (0.0.7) restricted; urgency=medium
 
   * [d6944d4] Adding Dependabot config
