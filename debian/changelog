@@ -1,8 +1,10 @@
-custom-motd (0.0.8) UNRELEASED; urgency=medium
+custom-motd (0.0.8) restricted; urgency=medium
 
-  * NOT RELEASED YET
+  * [af75554] build(deps): bump skx/github-action-publish-binaries
+  * [ed45105] Updating build pipelines
+  * [a9e5db6] Adding Debian 12
 
- -- Jan Wagner <waja@cyconet.org>  Wed, 13 Oct 2021 11:21:30 +0200
+ -- Jan Wagner <waja@cyconet.org>  Mon, 19 Jun 2023 17:41:49 +0200
 
 custom-motd (0.0.7) restricted; urgency=medium
 
